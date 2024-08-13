@@ -12,12 +12,17 @@ const TodoItem = ({ todo, dispatch }) => {
 
   return (
     <li>
-      <div className="d-flex align-items-center justify-content-between">
+      <div className="d-flex align-items-center justify-content-between mb-2">
         <span className={todo.completed ? "text-decoration-line-through" : ""}>
           {todo.name}
         </span>
         <div className="d-flex gap-2">
-          <button className="btn btn-success btn-sm" onClick={toggleTodo}>
+          <button
+            className={`btn btn-sm ${
+              todo.completed ? "btn-warning" : "btn-success"
+            }`}
+            onClick={toggleTodo}
+          >
             {todo.completed ? "Undo" : "Mark as Done"}
           </button>
           <button className="btn btn-danger btn-sm" onClick={removeTodo}>

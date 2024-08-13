@@ -93,11 +93,15 @@ const HookUseReducer = () => {
         </form>
         <hr />
         <h4>Todo List</h4>
-        <ul>
-          {todos.map((todo) => (
-            <TodoItem todo={todo} dispatch={dispatch} key={todo.id} />
-          ))}
-        </ul>
+        {todos.length === 0 ? (
+          <p>There are no todos added. Add some?</p>
+        ) : (
+          <ul>
+            {todos.map((todo) => (
+              <TodoItem todo={todo} dispatch={dispatch} key={todo.id} />
+            ))}
+          </ul>
+        )}
       </div>
     </>
   );
