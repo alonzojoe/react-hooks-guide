@@ -8,3 +8,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+code {
+  background-color: #0000;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: #0000;
+  border: 1px solid #272727;
+  border-radius: 3px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+pre code {
+  display: block;
+  line-height: 1.5;
+}
