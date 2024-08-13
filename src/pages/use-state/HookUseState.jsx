@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Input from "@/components/UI/Input";
 
 const HookUseState = () => {
   const [count, setCount] = useState(0);
@@ -39,7 +40,7 @@ const HookUseState = () => {
         arrays and objects.
       </p>
       <h3>
-        <i>useCase</i>
+        <i>Common useCase</i>
       </h3>
       <h3>
         <code>Counter</code>
@@ -63,9 +64,9 @@ const HookUseState = () => {
       </h3>
       <div className="w-50">
         <label className="mb-2">My Name is: {name}</label>
-        <input
+        <Input
           type="text"
-          className="form-control form-control-sm"
+          className="form-control-sm"
           value={name}
           onChange={() => setName(event.target.value)}
         />
@@ -77,10 +78,10 @@ const HookUseState = () => {
       <div className="w-50">
         <form>
           <div className="mb-3">
-            <label for="name" className="form-label">
+            <label htmlFor="name" className="form-label">
               Name
             </label>
-            <input
+            <Input
               type="text"
               value={formData.name}
               onChange={changeHandler}
@@ -90,10 +91,10 @@ const HookUseState = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="email" className="form-label">
+            <label htmlFor="email" className="form-label">
               Email
             </label>
-            <input
+            <Input
               type="email"
               value={formData.email}
               onChange={changeHandler}
@@ -103,10 +104,10 @@ const HookUseState = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="address" className="form-label">
+            <label htmlFor="address" className="form-label">
               Address
             </label>
-            <input
+            <Input
               type="text"
               value={formData.address}
               onChange={changeHandler}
