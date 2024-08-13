@@ -3,7 +3,7 @@ import { ACTIONS } from "../HookUseReducer";
 
 const TodoItem = ({ todo, dispatch }) => {
   const toggleTodo = () => {
-    dispatch({ type: ACTIONS.TOGGLE_TODO, id: todo.id });
+    dispatch({ type: ACTIONS.TOGGLE_STATUS, id: todo.id });
   };
 
   const removeTodo = () => {
