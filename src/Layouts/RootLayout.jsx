@@ -24,7 +24,7 @@ const RootLayout = () => {
     <>
       <h1
         ref={headerRef}
-        className="p-2 bg-dark shadow top-0 position-fixed w-100"
+        className="p-2 bg-dark shadow top-0 position-fixed w-100 z-3"
       >
         <button
           className="btn btn-dark p-0 d-lg-none"
@@ -40,7 +40,15 @@ const RootLayout = () => {
         </Link>
       </h1>
       <div className="row" style={{ marginTop: headerHeight }}>
-        <div className="col-lg-2 d-none d-lg-block ">
+        <div
+          className="col-lg-2 d-none d-lg-block bg-dark"
+          style={{
+            position: "sticky",
+            top: headerHeight,
+            overflowY: "auto",
+            height: `calc(100vh - ${headerHeight})`,
+          }}
+        >
           <div className="container shadow">
             <li className="bd-links-group py-2 list-unstyled">
               <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
@@ -68,8 +76,11 @@ const RootLayout = () => {
             </li>
           </div>
         </div>
-        <div className="col-lg-10 col-sm-12">
-          <div className="container-fluid">
+        <div
+          className="col-lg-10 col-sm-12"
+          style={{ height: `calc(100vh - ${headerHeight})`, overflowY: "auto" }}
+        >
+          <div className="container-fluid pt-3">
             <Outlet />
           </div>
         </div>
