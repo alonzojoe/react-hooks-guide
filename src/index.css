@@ -59,3 +59,13 @@ pre code {
   width: 3px;
   background-color: #58c4dc;
 }
+
+.arrangement {
+  flex-direction: row !important;
+}
+
+@media screen and (max-width: 768px) {
+  .arrangement {
+    flex-direction: column !important;
+  }
+}
