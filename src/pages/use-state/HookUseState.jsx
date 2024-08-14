@@ -30,15 +30,62 @@ const HookUseState = () => {
       </h2>
       <p className="mt-3">
         The <code>useState</code> hook is a React hook for managing state in
-        functional components in React. Syntax: <br />
+        functional components. It allows you to add state variables to your
+        functional components. Here’s how it works:
+        <br />
+        <br />
+        <strong>Syntax:</strong> <br />
         <code>const [count, setCount] = useState(0)</code>
         <br />
-        <code>count</code> is the value itself, and the second parameter{" "}
-        <code>setCount</code> in the array destructuring is the function that
-        updates the <code>count</code> state. Inside the <code>useState</code>{" "}
-        is the default value of the <code>count</code>. It also works with
-        arrays and objects.
+        <br />-{" "}
+        <strong>
+          <code>count</code>
+        </strong>
+        : This is the current value of the state variable.
+        <br />-{" "}
+        <strong>
+          <code>setCount</code>
+        </strong>
+        : This is the function used to update the state variable.
+        <br />- Inside the <code>useState</code> call, <code>0</code> is the
+        default value of <code>count</code>.
+        <br />
+        <br />
+        The <code>useState</code> hook can also be used with arrays and objects.
+        For example:
+        <br />
+        <code>
+          {`const [user, setUser] = useState({ name: 'John', age: 30 })`}
+        </code>
+        <br />
+        In this case, <code>user</code> is an object containing{" "}
+        <code>name</code> and <code>age</code>, and <code>setUser</code> is used
+        to update this object.
+        <br />
+        <br />
+        Updating state with the previous value: When the new state depends on
+        the previous state, you should use a callback function with{" "}
+        <code>setCount</code>. This ensures that you’re working with the most
+        recent state value, especially in cases where state updates might be
+        batched or asynchronous. Here’s how you use it:
+        <br />
+        <br />
+        <strong>Example:</strong>
+        <br />
+        <code>setCount(prevCount =&gt; prevCount + 1);</code>
+        <br />
+        In this example, <code>prevCount</code> represents the previous state
+        value. By using this callback function, you ensure that the new state is
+        based on the most recent value of <code>count</code>, which is important
+        when multiple state updates might occur simultaneously or in quick
+        succession.
+        <br />
+        <br />
+        This pattern is especially useful in scenarios where you have multiple
+        state updates that need to be processed in a specific order or when the
+        state update is dependent on the current state value.
       </p>
+
       <h3>
         <i>Common useCase</i>
       </h3>

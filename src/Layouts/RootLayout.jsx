@@ -36,8 +36,13 @@ const RootLayout = () => {
         >
           <i className="bx bx-menu-alt-left fs-1 border rounded route-link p-1"></i>
         </button>
-        <img src={HookLogo} alt="ReactHooks" width="50" height="50" />{" "}
         <Link to="/" className="text-decoration-none text-white align-middle">
+          <img src={HookLogo} alt="ReactHooks" width="50" height="50" />
+        </Link>
+        <Link
+          to="/"
+          className="mx-1 text-decoration-none text-white align-middle"
+        >
           <span>React Hooks Guide</span>
         </Link>
       </h1>
