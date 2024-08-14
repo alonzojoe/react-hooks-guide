@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
+import HookLogo from "@/assets/images/hook.png";
 
 const RootLayout = () => {
   const headerRef = useRef(null);
@@ -35,21 +36,24 @@ const RootLayout = () => {
         >
           <i className="bx bx-menu-alt-left fs-1 border rounded route-link p-1"></i>
         </button>
-        <Link to="/" className="mx-2 text-decoration-none text-white">
-          React Hooks Guide
+        <img src={HookLogo} alt="ReactHooks" width="50" height="50" />{" "}
+        <Link to="/" className="text-decoration-none text-white align-middle">
+          <span>React Hooks Guide</span>
         </Link>
       </h1>
       <div className="row" style={{ marginTop: headerHeight }}>
         <div
-          className="col-lg-2 d-none d-lg-block bg-dark"
+          className="col-lg-2 d-none d-lg-block"
           style={{
             position: "sticky",
             top: headerHeight,
             overflowY: "auto",
-            height: `calc(100vh - ${headerHeight})`,
           }}
         >
-          <div className="container shadow">
+          <div
+            className="container shadow"
+            style={{ height: `calc(100vh - ${headerHeight})` }}
+          >
             <li className="bd-links-group py-2 list-unstyled">
               <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
                 Hooks
