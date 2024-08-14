@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "@/pages/home/Home";
 import RootLayout from "@/Layouts/RootLayout";
 import NotFound from "@/pages/error/NotFound";
 import HookUseState from "@/pages/use-state/HookUseState";
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
           <Route path="/use-state" element={<HookUseState />} />
           <Route path="use-reducer" element={<HookUseReducer />} />
           <Route path="*" element={<NotFound />} />
