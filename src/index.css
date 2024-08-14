@@ -9,7 +9,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 code {
+  color: #58c4dc;
   background-color: #0000;
   border-radius: 3px;
   padding: 0 4px;
@@ -27,4 +32,30 @@ pre {
 pre code {
   display: block;
   line-height: 1.5;
+}
+
+.route-link {
+  padding-left: 10px;
+  color: #92969d !important;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+.route-link:hover {
+  color: #58c4dc !important;
+}
+
+.route-link.active {
+  color: #58c4dc !important;
+}
+
+.route-link.active::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  height: 20px;
+  width: 3px;
+  background-color: #58c4dc;
 }

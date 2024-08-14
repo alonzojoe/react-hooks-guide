@@ -1,21 +1,79 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { useRef, useEffect, useState } from "react";
+import { Outlet, NavLink, Link } from "react-router-dom";
 
 const RootLayout = () => {
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  const getUpdatedHeight = () => {
+    if (headerRef.current) {
+      setHeaderHeight(`${headerRef.current.offsetHeight}px`);
+    }
+  };
+
+  useEffect(() => {
+    getUpdatedHeight();
+    window.addEventListener("resize", getUpdatedHeight);
+
+    return () => {
+      window.removeEventListener("resize", getUpdatedHeight);
+    };
+  }, []);
+
   return (
     <>
-      <h1 className="p-2">
+      <h1
+        ref={headerRef}
+        className="p-2 bg-dark shadow top-0 position-fixed w-100"
+      >
         <button
-          className="btn btn-dark p-0"
+          className="btn btn-dark p-0 d-lg-none"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#sidebar"
           aria-controls="sidebar"
         >
-          <i className="bx bx-menu-alt-left fs-1 border rounded p-1"></i>
+          <i className="bx bx-menu-alt-left fs-1 border rounded route-link p-1"></i>
         </button>
-        <span className="mx-2">React Hooks Guide</span>
+        <Link to="/" className="mx-2 text-decoration-none text-white">
+          React Hooks Guide
+        </Link>
       </h1>
+      <div className="row" style={{ marginTop: headerHeight }}>
+        <div className="col-lg-2 d-none d-lg-block ">
+          <div className="container shadow">
+            <li className="bd-links-group py-2 list-unstyled">
+              <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
+                Hooks
+              </strong>
 
+              <ul className="list-unstyled fw-normal pb-2 small">
+                <li>
+                  <NavLink
+                    to="/use-state"
+                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                  >
+                    useState
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/use-reducer"
+                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                  >
+                    useReducer
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+        <div className="col-lg-10 col-sm-12">
+          <div className="container-fluid">
+            <Outlet />
+          </div>
+        </div>
+      </div>
       <div
         className="offcanvas offcanvas-start"
         id="sidebar"
@@ -30,9 +88,9 @@ const RootLayout = () => {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body">
+        <div className="offcanvas-body" data-bs-dismiss="offcanvas">
           <li className="bd-links-group py-2 list-unstyled">
-            <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-5">
+            <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
               Hooks
             </strong>
 
@@ -40,7 +98,7 @@ const RootLayout = () => {
               <li>
                 <NavLink
                   to="/use-state"
-                  className="fs-4 bd-links-link d-inline-block text-decoration-none rounded"
+                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
                   useState
                 </NavLink>
@@ -48,7 +106,7 @@ const RootLayout = () => {
               <li>
                 <NavLink
                   to="/use-reducer"
-                  className="fs-4 bd-links-link d-inline-block text-decoration-none rounded"
+                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
                   useReducer
                 </NavLink>
@@ -56,9 +114,6 @@ const RootLayout = () => {
             </ul>
           </li>
         </div>
-      </div>
-      <div className="container-fluid">
-        <Outlet />
       </div>
     </>
   );
