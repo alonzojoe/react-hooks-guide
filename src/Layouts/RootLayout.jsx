@@ -87,7 +87,7 @@ const RootLayout = () => {
                     to="/use-state"
                     className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                   >
-                    useState
+                    useState()
                   </NavLink>
                 </li>
                 <li>
@@ -95,7 +95,7 @@ const RootLayout = () => {
                     to="/use-reducer"
                     className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                   >
-                    useReducer
+                    useReducer()
                   </NavLink>
                 </li>
               </ul>
@@ -137,7 +137,7 @@ const RootLayout = () => {
                   to="/use-state"
                   className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
-                  useState
+                  useState()
                 </NavLink>
               </li>
               <li>
@@ -145,7 +145,7 @@ const RootLayout = () => {
                   to="/use-reducer"
                   className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
-                  useReducer
+                  useReducer()
                 </NavLink>
               </li>
             </ul>

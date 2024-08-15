@@ -52,7 +52,7 @@ const HookUseReducer = () => {
   return (
     <>
       <h2>
-        <code>useReducer</code>
+        <code>useReducer()</code>
       </h2>
       <p className="mt-3">
         The <code>useReducer</code> is a React hook for managing more complex

@@ -2,6 +2,7 @@ import React from "react";
 import { ACTIONS } from "../HookUseReducer";
 
 const TodoItem = ({ todo, dispatch }) => {
+  console.log(`Todo Item is re-rendered`);
   const toggleTodo = () => {
     dispatch({ type: ACTIONS.TOGGLE_STATUS, id: todo.id });
   };

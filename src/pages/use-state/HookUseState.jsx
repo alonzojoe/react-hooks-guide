@@ -26,7 +26,7 @@ const HookUseState = () => {
   return (
     <>
       <h2>
-        <code>useState</code>
+        <code>useState()</code>
       </h2>
       <p className="mt-3">
         The <code>useState</code> hook is a React hook for managing state in
