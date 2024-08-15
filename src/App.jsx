@@ -4,6 +4,7 @@ import RootLayout from "@/Layouts/RootLayout";
 import NotFound from "@/pages/error/NotFound";
 import HookUseState from "@/pages/use-state/HookUseState";
 import HookUseReducer from "@/pages/use-reducer/HookUseReducer";
+import HookUseEffect from "@/pages/use-effect/HookUseEffect";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/use-state" element={<HookUseState />} />
           <Route path="use-reducer" element={<HookUseReducer />} />
+          <Route path="use-effect" element={<HookUseEffect />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

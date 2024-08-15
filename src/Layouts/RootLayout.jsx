@@ -98,6 +98,14 @@ const RootLayout = () => {
                     useReducer()
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/use-effect"
+                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                  >
+                    useEffect()
+                  </NavLink>
+                </li>
               </ul>
             </li>
           </div>
@@ -146,6 +154,14 @@ const RootLayout = () => {
                   className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
                   useReducer()
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/use-effect"
+                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                >
+                  useEffect()
                 </NavLink>
               </li>
             </ul>
