@@ -111,6 +111,14 @@ const RootLayout = () => {
                     useEffect()
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/use-ref"
+                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                  >
+                    useRef()
+                  </NavLink>
+                </li>
               </ul>
             </li>
           </div>
@@ -184,6 +192,14 @@ const RootLayout = () => {
                   className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
                 >
                   useEffect()
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/use-ref"
+                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                >
+                  useRef()
                 </NavLink>
               </li>
             </ul>
