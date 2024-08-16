@@ -1,6 +1,9 @@
 import React from "react";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 
 const HookUseEffect = () => {
+  const code = `useEffect(() => {\n  // Your effect logic here\n}, [dependencies]);`;
+
   return (
     <>
       <h2>
@@ -22,10 +25,24 @@ const HookUseEffect = () => {
         In Simple words, any action which connects the component to the outside
         world is a <code>Side Effect</code>.
       </p>
-      <span className="d-block">Syntax:</span>
+      <span className="d-block my-2">Syntax:</span>
       <p>
-        {" "}
-        <code>{"useEffect(() => {}, [dependencies])"}</code>
+        <CodeEditor
+          value={code}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span>
         The <code>useEffect()</code> Hook has takes two arguments:
@@ -46,9 +63,24 @@ const HookUseEffect = () => {
       <p className="fw-semibold">
         Case 1: Passing an array of dependencies <code>dependencies</code>.
       </p>
+
       <p>
-        {" "}
-        <code>{"useEffect(() => { console.log('test') }, [state])"}</code>
+        <CodeEditor
+          value={`useEffect(() => {\n  console.log('test');\n}, [state]);`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span className="d-block">Order of execution</span>
       <ul>
@@ -66,12 +98,22 @@ const HookUseEffect = () => {
         Case 2: Passing an <code>empty array[]</code>.
       </p>
       <p>
-        {" "}
-        <code>
-          {
-            "useEffect(() => { console.log('Component renders at firs time') }, [])"
-          }
-        </code>
+        <CodeEditor
+          value={`useEffect(() => {\n  console.log('Component renders at first time');\n}, []);`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span className="d-block">Order of execution</span>
       <ul>
@@ -88,10 +130,22 @@ const HookUseEffect = () => {
         Case 3: Passing no <code>array.</code>.
       </p>
       <p>
-        {" "}
-        <code>
-          {"useEffect(() => { console.log('Component re-renders') })"}
-        </code>
+        <CodeEditor
+          value={`useEffect(() => {\n  console.log('Component re-renders');\n});`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span className="d-block">Order of execution</span>
       <ul>
@@ -119,30 +173,41 @@ const HookUseEffect = () => {
         </li>
       </ul>
       <p>
-        {" "}
-        <code>
-          {`useEffect(() => {
-            // side effects
-            return () => {
-                // clean up function
-            }
-            }, [])`}
-        </code>
+        <CodeEditor
+          value={`useEffect(() => {\n  // side effects\n  return () => {\n    // clean up function\n  };\n}, []);`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span className="d-block">Example</span>
       <p>
-        {" "}
-        <code>
-          {`useEffect(() => {
-        const interval = setInterval(() => {
-            // executes every 1 second
-        }, 1000);
-
-        return () => {
-            clearInterval(interval);
-        };
-        }, []);`}
-        </code>
+        <CodeEditor
+          value={`useEffect(() => {\n  const interval = setInterval(() => {\n    // executes every 1 second\n  }, 1000);\n\n  return () => {\n    clearInterval(interval);\n  };\n}, []);`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <span className="d-block">Order of execution</span>
       <ul>
