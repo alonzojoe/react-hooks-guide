@@ -20,6 +20,7 @@ module.exports = {
     "react/display-name": "off",
     "react/prop-types": "off",
     "no-unused-vars": "off",
+    "no-undef": "off",
     "no-case-declaration": "off",
   },
 };
