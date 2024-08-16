@@ -54,12 +54,17 @@ const RootLayout = () => {
             </Link>
           </div>
           <div className="mx-2">
-            <a
-              href="https://github.com/alonzojoe/react-hooks-guide"
-              target="_blank"
-            >
-              <img src={GitHubLogo} alt="ReactHooks" width="35" height="35" />
-            </a>
+            <div className="d-flex align-items-center justify-content-end gap-3">
+              {/* <a className="cursor-pointer mt-2">
+                <i className="bx bxs-moon" style={{ fontSize: "35px" }}></i>
+              </a> */}
+              <a
+                href="https://github.com/alonzojoe/react-hooks-guide"
+                target="_blank"
+              >
+                <img src={GitHubLogo} alt="ReactHooks" width="35" height="35" />
+              </a>
+            </div>
           </div>
         </div>
       </h1>
@@ -125,7 +130,24 @@ const RootLayout = () => {
         aria-labelledby="sidebarLabel"
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="sidebarLabel"></h5>
+          <h5 className="offcanvas-title" id="sidebarLabel">
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+                <Link
+                  to="/"
+                  className="text-decoration-none text-white align-middle"
+                >
+                  <img src={HookLogo} alt="ReactHooks" width="50" height="50" />
+                </Link>
+                <Link
+                  to="/"
+                  className="mx-1 text-decoration-none text-white align-middle"
+                >
+                  <span>React Hooks Guide</span>
+                </Link>
+              </div>
+            </div>
+          </h5>
           <button
             type="button"
             className="btn-close"
@@ -134,7 +156,7 @@ const RootLayout = () => {
           ></button>
         </div>
         <div className="offcanvas-body" data-bs-dismiss="offcanvas">
-          <li className="bd-links-group py-2 list-unstyled">
+          <li className="bd-links-group pb-2 list-unstyled">
             <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
               Hooks
             </strong>
