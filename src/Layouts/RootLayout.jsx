@@ -3,6 +3,25 @@ import { Outlet, NavLink, Link } from "react-router-dom";
 import HookLogo from "@/assets/images/hook.png";
 import GitHubLogo from "@/assets/images/github.png";
 
+const HOOKS = [
+  {
+    name: "useState()",
+    path: "/use-state",
+  },
+  {
+    name: "useReducer()",
+    path: "/use-reducer",
+  },
+  {
+    name: "useEffect()",
+    path: "/use-effect",
+  },
+  {
+    name: "useRef()",
+    path: "/use-ref",
+  },
+];
+
 const RootLayout = () => {
   const headerRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -87,38 +106,16 @@ const RootLayout = () => {
               </strong>
 
               <ul className="list-unstyled fw-normal pb-2 small">
-                <li>
-                  <NavLink
-                    to="/use-state"
-                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                  >
-                    useState()
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/use-reducer"
-                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                  >
-                    useReducer()
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/use-effect"
-                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                  >
-                    useEffect()
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/use-ref"
-                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                  >
-                    useRef()
-                  </NavLink>
-                </li>
+                {HOOKS.map((hook) => (
+                  <li>
+                    <NavLink
+                      to={hook.path}
+                      className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                    >
+                      {hook.name}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </li>
           </div>
@@ -170,38 +167,16 @@ const RootLayout = () => {
             </strong>
 
             <ul className="list-unstyled fw-normal pb-2 small">
-              <li>
-                <NavLink
-                  to="/use-state"
-                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                >
-                  useState()
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/use-reducer"
-                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                >
-                  useReducer()
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/use-effect"
-                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                >
-                  useEffect()
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/use-ref"
-                  className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                >
-                  useRef()
-                </NavLink>
-              </li>
+              {HOOKS.map((hook) => (
+                <li>
+                  <NavLink
+                    to={hook.path}
+                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
+                  >
+                    {hook.name}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </li>
         </div>
