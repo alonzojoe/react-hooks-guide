@@ -69,3 +69,7 @@ pre code {
     flex-direction: column !important;
   }
 }
+
+.bread-crumbs {
+  color: #58c4dc;
+}

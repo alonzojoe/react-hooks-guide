@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BreadCrumbs from "@/components/UI/BreadCrumbs";
 import Input from "@/components/UI/Input";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 
@@ -26,6 +27,7 @@ const HookUseState = () => {
 
   return (
     <>
+      <BreadCrumbs category="Hooks" name="useState()" />
       <h2>
         <code>useState()</code>
       </h2>
