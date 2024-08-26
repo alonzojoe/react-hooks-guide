@@ -31,7 +31,7 @@ const HookUseState = () => {
       <h2>
         <code>useState()</code>
       </h2>
-      <p className="mt-3">
+      <div className="mt-3">
         The <code>useState</code> hook is a React hook for managing state in
         functional components. It allows you to add state variables to your
         functional components. Here’s how it works:
@@ -135,7 +135,7 @@ const HookUseState = () => {
           state updates that need to be processed in a specific order or when
           the state update is dependent on the current state value.
         </p>
-      </p>
+      </div>
 
       <h3>
         <i>Common useCase</i>

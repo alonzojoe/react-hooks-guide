@@ -5,18 +5,22 @@ import GitHubLogo from "@/assets/images/github.png";
 
 const HOOKS = [
   {
+    id: 1,
     name: "useState()",
     path: "/use-state",
   },
   {
+    id: 2,
     name: "useReducer()",
     path: "/use-reducer",
   },
   {
+    id: 3,
     name: "useEffect()",
     path: "/use-effect",
   },
   {
+    id: 4,
     name: "useRef()",
     path: "/use-ref",
   },
@@ -107,7 +111,7 @@ const RootLayout = () => {
 
               <ul className="list-unstyled fw-normal pb-2 small">
                 {HOOKS.map((hook) => (
-                  <li>
+                  <li key={hook.id}>
                     <NavLink
                       to={hook.path}
                       className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
@@ -168,7 +172,7 @@ const RootLayout = () => {
 
             <ul className="list-unstyled fw-normal pb-2 small">
               {HOOKS.map((hook) => (
-                <li>
+                <li key={hook.id}>
                   <NavLink
                     to={hook.path}
                     className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
