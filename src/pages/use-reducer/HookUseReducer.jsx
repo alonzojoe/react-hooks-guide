@@ -1,6 +1,8 @@
 import React, { useReducer, useRef } from "react";
+import BreadCrumbs from "@/components/UI/BreadCrumbs";
 import Input from "@/components/UI/Input";
 import TodoItem from "@/pages/use-reducer/components/TodoItem";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 
 export const ACTIONS = {
   ADD_TODO: "add-todo",
@@ -51,6 +53,7 @@ const HookUseReducer = () => {
 
   return (
     <>
+      <BreadCrumbs category="Hooks" name="useReducer()" />
       <h2>
         <code>useReducer()</code>
       </h2>
@@ -59,8 +62,25 @@ const HookUseReducer = () => {
         state logic in functional components, especially when the state involves
         multiple sub-values or when the next state depends on the previous one.
         <br />
-        <span className="d-block my-3">Syntax:</span>
-        <code>const [state, dispatch] = useReducer(reducer, initialState)</code>
+      </p>
+      <span className="d-block my-3">Syntax:</span>
+      <p>
+        <CodeEditor
+          value={`const [state, dispatch] = useReducer(reducer, initialState)`}
+          language="jsx"
+          placeholder="Please enter JSX code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
       </p>
       <ul>
         <li>
@@ -78,10 +98,47 @@ const HookUseReducer = () => {
         </li>
       </ul>
       <h3>
-        <i>Common useCase</i>
+        <i>Example use case:</i>
       </h3>
+      <p>
+        <CodeEditor
+          value={`const todosReducer = (todos, action) => {\n  switch (action.type) {\n    case ACTIONS.ADD_TODO:\n      const newTodo = {\n        id: Date.now(),\n        name: action.todo,\n        completed: false,\n      };\n      return [newTodo, ...todos];\n\n    case ACTIONS.REMOVE_TODO:\n      return todos.filter((todo) => todo.id !== action.id);\n\n    case ACTIONS.TOGGLE_STATUS:\n      return todos.map((todo) => {\n        if (todo.id === action.id) {\n          return { ...todo, completed: !todo.completed };\n        }\n        return todo;\n      });\n    default:\n      return todos;\n  }\n};`}
+          language="javascript"
+          placeholder="Please enter JavaScript code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
+      </p>
+      <p>
+        <CodeEditor
+          value={`const [todos, dispatch] = useReducer(todosReducer, []);`}
+          language="javascript"
+          placeholder="Please enter JavaScript code."
+          onChange={(evn) => setCode(evn.target.value)}
+          padding={0}
+          data-color-mode="dark"
+          style={{
+            backgroundColor: "#161B22",
+            borderRadius: "5px",
+            pointerEvents: "none",
+            fontSize: "15px",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+          }}
+        />
+      </p>
+
       <h3>
-        <code>Todo App</code>
+        <code>Todo App (Add Todo, Remove Todo and Toggle Status)</code>
       </h3>
       <div className="w-50">
         <form onSubmit={submitHandler}>
