@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import BreadCrumbs from "@/components/UI/BreadCrumbs";
 import CodeEditor from "@uiw/react-textarea-code-editor";
+import ConfirmDialog from "@/pages/use-imperativehandle/components/ConfirmDialog";
 
 const HookUseImperativeHandle = () => {
+  const dialogRef = useRef();
+
   return (
     <>
       <BreadCrumbs category="Hooks" name="useImperativeHandle()" />
@@ -125,6 +128,33 @@ const HookUseImperativeHandle = () => {
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
         }}
       />
+      <hr />
+      <h3>
+        <i>Example in Realworld Projects:</i>
+      </h3>
+      <div className="d-flex gap-3">
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => dialogRef.current.focusCloseBtn()}
+        >
+          Focus Close
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => dialogRef.current.focusYesBtn()}
+        >
+          Focus Yes
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => dialogRef.current.focusCancelBtn()}
+        >
+          Focus Cancel
+        </button>
+      </div>
+      <div className="d-flex align-items-center justify-content-center my-5">
+        <ConfirmDialog ref={dialogRef} />
+      </div>
     </>
   );
 };
