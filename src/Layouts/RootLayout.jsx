@@ -24,6 +24,11 @@ const HOOKS = [
     name: "useRef()",
     path: "/use-ref",
   },
+  {
+    id: 5,
+    name: "useImperativeHandle()",
+    path: "/use-imperativehandle",
+  },
 ];
 
 const RootLayout = () => {
