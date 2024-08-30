@@ -1,7 +1,7 @@
 import React, { useRef, useImperativeHandle, useEffect } from "react";
 import Card from "@/components/UI/Card";
 
-const ConfirmDialog = (props, ref) => {
+const ConfirmDialog = React.forwardRef((props, ref) => {
   const btnCloseRef = useRef();
   const btnYesRef = useRef();
   const btnCancelRef = useRef();
@@ -17,45 +17,45 @@ const ConfirmDialog = (props, ref) => {
   return (
     <Card className="shadow py-4 position-relative" style={{ width: "20rem" }}>
       <button
+        className="btn-focus"
         ref={btnCloseRef}
         style={{
           position: "absolute",
           top: "10px",
           right: "10px",
           borderRadius: "50%",
-          height: "20px",
-          width: "20px",
+          height: "30px",
+          width: "30px",
           padding: "5px",
-          lineHeight: "10px",
-          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           border: "none",
           cursor: "pointer",
+          fontSize: "18px",
           background: "#FD6366",
         }}
       >
         &times;
       </button>
-      <div className="d-flex justify-content-center">
-        <p className="fs-2">Are you sure?</p>
-      </div>
-      <div className="d-flex align-items-center justify-content-center gap-3">
-        <button
-          className=""
-          ref={btnYesRef}
-          style={{
-            background: `${
-              btnYesRef.current === document.activeElement ? "red" : null
-            }`,
-          }}
-        >
-          Yes
-        </button>
-        <button className="" ref={btnCancelRef}>
-          Cancel
-        </button>
+      <div className="card-body">
+        <div className="d-flex justify-content-center">
+          <p className="fs-2">Are you sure?</p>
+        </div>
+        <div className="d-flex align-items-center justify-content-center gap-3">
+          <button className="btn-focus btn btn-sm btn-primary" ref={btnYesRef}>
+            Yes
+          </button>
+          <button
+            className="btn-focus btn btn-sm btn-secondary"
+            ref={btnCancelRef}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </Card>
   );
-};
+});
 
-export default React.forwardRef(ConfirmDialog);
+export default ConfirmDialog;
