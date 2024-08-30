@@ -26,6 +26,11 @@ const HOOKS = [
   },
   {
     id: 5,
+    name: "useMemo()",
+    path: "/use-memo",
+  },
+  {
+    id: 6,
     name: "useImperativeHandle()",
     path: "/use-imperativehandle",
   },

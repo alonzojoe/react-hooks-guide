@@ -7,6 +7,7 @@ import HookUseReducer from "@/pages/use-reducer/HookUseReducer";
 import HookUseEffect from "@/pages/use-effect/HookUseEffect";
 import HookUseRef from "@/pages/use-ref/HookUseRef";
 import HookUseImperativeHandle from "@/pages/use-imperativehandle/HookUseImperativeHandle";
+import HookUseMemo from "@/pages/use-memo/HookUseMemo";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             path="use-imperativehandle"
             element={<HookUseImperativeHandle />}
           />
+          <Route path="use-memo" element={<HookUseMemo />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
