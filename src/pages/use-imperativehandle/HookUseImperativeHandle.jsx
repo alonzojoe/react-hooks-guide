@@ -132,7 +132,7 @@ const HookUseImperativeHandle = () => {
       <h3>
         <i>Example in Realworld Projects:</i>
       </h3>
-      <div className="d-flex gap-3">
+      <div className="d-flex gap-3 mt-3">
         <button
           className="btn btn-secondary btn-sm"
           onClick={() => dialogRef.current.focusCloseBtn()}
@@ -155,6 +155,39 @@ const HookUseImperativeHandle = () => {
       <div className="d-flex align-items-center justify-content-center my-5">
         <ConfirmDialog ref={dialogRef} />
       </div>
+      <CodeEditor
+        value={`//ConfirmDialog Component\nimport React, { useRef, useImperativeHandle } from "react";import Card from "@/components/UI/Card";\n\nconst ConfirmDialog = React.forwardRef((props, ref) => {\n  const btnCloseRef = useRef();\n  const btnYesRef = useRef();\n  const btnCancelRef = useRef();\n\n  useImperativeHandle(ref, () => {\n    return {\n      focusCloseBtn: () => btnCloseRef.current.focus(),\n      focusYesBtn: () => btnYesRef.current.focus(),\n      focusCancelBtn: () => btnCancelRef.current.focus(),\n    };\n  });\n\n  return (\n    <Card className="shadow py-4 position-relative" style={{ width: "20rem" }}>\n      <button className="btn-close-x btn-focus" ref={btnCloseRef}>\n        &times;\n      </button>\n      <div className="card-body">\n        <div className="d-flex justify-content-center">\n          <p className="fs-2">Are you sure?</p>\n        </div>\n        <div className="d-flex align-items-center justify-content-center gap-3">\n          <button className="btn-focus btn btn-sm btn-primary" ref={btnYesRef}>\n            Yes\n          </button>\n          <button\n            className="btn-focus btn btn-sm btn-secondary"\n            ref={btnCancelRef}\n          >\n            Cancel\n          </button>\n        </div>\n      </div>\n    </Card>\n  );\n});\n\nexport default ConfirmDialog;`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+      <CodeEditor
+        value={`//ParentComponent\nimport React, { useRef } from "react";\nimport ConfirmDialog from "@/pages/use-imperativehandle/components/ConfirmDialog";\n\nconst ParentComponent = () => {\n  const dialogRef = useRef();\n  \n  return (\n    <div className="d-flex gap-3 mt-3">\n      <button\n        className="btn btn-secondary btn-sm"\n        onClick={() => dialogRef.current.focusCloseBtn()}\n      >\n        Focus Close\n      </button>\n      <button\n        className="btn btn-secondary btn-sm"\n        onClick={() => dialogRef.current.focusYesBtn()}\n      >\n        Focus Yes\n      </button>\n      <button\n        className="btn btn-secondary btn-sm"\n        onClick={() => dialogRef.current.focusCancelBtn()}\n      >\n        Focus Cancel\n      </button>\n    </div>\n    <div className="d-flex align-items-center justify-content-center my-5">\n      <ConfirmDialog ref={dialogRef} />\n    </div>\n  );\n};\n\nexport default ParentComponent;`}
+        language="jsx"
+        className="my-4"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
     </>
   );
 };

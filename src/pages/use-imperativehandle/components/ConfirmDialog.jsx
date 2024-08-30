@@ -16,26 +16,7 @@ const ConfirmDialog = React.forwardRef((props, ref) => {
 
   return (
     <Card className="shadow py-4 position-relative" style={{ width: "20rem" }}>
-      <button
-        className="btn-focus"
-        ref={btnCloseRef}
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          borderRadius: "50%",
-          height: "30px",
-          width: "30px",
-          padding: "5px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "18px",
-          background: "#FD6366",
-        }}
-      >
+      <button className="btn-close-x btn-focus" ref={btnCloseRef}>
         &times;
       </button>
       <div className="card-body">
