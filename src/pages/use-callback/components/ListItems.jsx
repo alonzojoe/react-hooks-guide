@@ -5,7 +5,7 @@ const ListItems = ({ getList }) => {
 
   useEffect(() => {
     console.log("Updating Items...");
-    setItems(getList());
+    setItems(getList(1));
   }, [getList]);
 
   return (

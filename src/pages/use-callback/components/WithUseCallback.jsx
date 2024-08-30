@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Card from "@/components/UI/Card";
 import ListItems from "@/pages/use-callback/components/ListItems";
 const WithUseCallback = () => {
   const [count, setCount] = useState(0);
   const [lightMode, setLightMode] = useState(false);
 
-  const getList = () => {
-    return [count, count + 1, count + 2];
-  };
+  const getList = useCallback(
+    (increment) => {
+      return [count + increment, count + increment + 1, count + increment + 2];
+    },
+    [count]
+  );
 
   const themeStyle = {
     background: lightMode ? "white" : "black",
