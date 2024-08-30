@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Card from "@/components/UI/Card";
 
 const WithUseMemo = ({ slowCalculation }) => {
@@ -9,10 +9,16 @@ const WithUseMemo = ({ slowCalculation }) => {
   const doubleCount = useMemo(() => {
     return slowCalculation(count);
   }, [count]);
-  const themeStyle = {
-    background: lightMode ? "white" : "black",
-    color: lightMode ? "black" : "white",
-  };
+  const themeStyle = useMemo(() => {
+    return {
+      background: lightMode ? "white" : "black",
+      color: lightMode ? "black" : "white",
+    };
+  }, [lightMode]);
+
+  useEffect(() => {
+    console.log("Background has been changed!");
+  }, [themeStyle]);
 
   return (
     <Card className="shadow py-2" style={{ width: "100%" }}>
@@ -34,7 +40,7 @@ const WithUseMemo = ({ slowCalculation }) => {
             className="btn btn-sm btn-secondary"
             onClick={() => setLightMode((prev) => !prev)}
           >
-            Change Theme
+            Change Background
           </button>
           <div className="form-group">
             <label className="mb-2">Double Count:</label>

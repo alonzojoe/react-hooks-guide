@@ -32,7 +32,7 @@ const WithoutUseMemo = ({ slowCalculation }) => {
             className="btn btn-sm btn-secondary"
             onClick={() => setLightMode((prev) => !prev)}
           >
-            Change Theme
+            Change Background
           </button>
           <div className="form-group">
             <label className="mb-2">Double Count:</label>
