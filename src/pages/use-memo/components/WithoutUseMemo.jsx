@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@/components/UI/Card";
 
 const WithoutUseMemo = ({ slowCalculation }) => {
@@ -11,6 +11,10 @@ const WithoutUseMemo = ({ slowCalculation }) => {
     background: lightMode ? "white" : "black",
     color: lightMode ? "black" : "white",
   };
+
+  useEffect(() => {
+    console.log("Background has been changed!");
+  }, [themeStyle]);
 
   return (
     <Card className="shadow py-2" style={{ width: "100%" }}>
