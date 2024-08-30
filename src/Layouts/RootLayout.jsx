@@ -31,6 +31,11 @@ const HOOKS = [
   },
   {
     id: 6,
+    name: "useCallback()",
+    path: "/use-callback",
+  },
+  {
+    id: 7,
     name: "useImperativeHandle()",
     path: "/use-imperativehandle",
   },
