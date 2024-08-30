@@ -13,7 +13,7 @@ const WithoutUseMemo = ({ slowCalculation }) => {
   };
 
   return (
-    <Card className="shadow py-4" style={{ width: "20rem" }}>
+    <Card className="shadow py-2" style={{ width: "100%" }}>
       <div className="card-body">
         <h5 classname="card-title">
           Without <code>useMemo()</code>
