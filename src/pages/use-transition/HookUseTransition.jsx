@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import About from "@/pages/use-transition/components/About";
 import Posts from "@/pages/use-transition/components/Posts";
 import Contact from "@/pages/use-transition/components/Contact";
 
 const HookUseTransition = () => {
   console.log("Hook UseTransition is rendering");
-
+  const [isPending, startTransition] = useTransition();
   const [currentTab, setCurrentTab] = useState(1);
 
   const selectTab = (tab) => {
-    setCurrentTab(tab);
+    startTransition(() => {
+      setCurrentTab(tab);
+    });
   };
 
   return (
@@ -33,7 +35,15 @@ const HookUseTransition = () => {
                 className={`nav-link ${currentTab === 2 ? "active" : ""}`}
                 onClick={() => selectTab(2)}
               >
-                Post
+                Posts (slow)
+                {isPending && (
+                  <div
+                    class="spinner-border spinner-border-sm text-danger mx-1"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                )}
               </a>
             </li>
             <li className="nav-item">
@@ -41,7 +51,7 @@ const HookUseTransition = () => {
                 className={`nav-link ${currentTab === 3 ? "active" : ""}`}
                 onClick={() => selectTab(3)}
               >
-                About
+                Contact
               </a>
             </li>
           </ul>

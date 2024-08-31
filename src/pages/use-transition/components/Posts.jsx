@@ -48,4 +48,4 @@ function SlowPost({ index }) {
   );
 }
 
-export default Posts;
+export default React.memo(Posts);
