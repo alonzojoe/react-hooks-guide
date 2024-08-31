@@ -39,6 +39,11 @@ const HOOKS = [
     name: "useImperativeHandle()",
     path: "/use-imperativehandle",
   },
+  {
+    id: 8,
+    name: "useTransition()",
+    path: "/use-transition",
+  },
 ];
 
 const RootLayout = () => {

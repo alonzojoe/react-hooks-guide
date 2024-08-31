@@ -95,3 +95,7 @@ pre code {
   font-size: 15px;
   background: #fd6366;
 }
+
+.nav-link {
+  cursor: pointer !important;
+}
