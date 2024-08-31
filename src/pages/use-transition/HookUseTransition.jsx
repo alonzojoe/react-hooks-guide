@@ -25,7 +25,7 @@ const HookUseTransition = () => {
                 className={`nav-link ${currentTab === 1 ? "active" : ""}`}
                 onClick={() => selectTab(1)}
               >
-                Home
+                About
               </a>
             </li>
             <li className="nav-item">
@@ -45,7 +45,10 @@ const HookUseTransition = () => {
               </a>
             </li>
           </ul>
-          <div className="border border-top-0 p-4" style={{ height: "300px" }}>
+          <div
+            className="border border-top-0 p-4 overflow-y-auto"
+            style={{ height: "500px" }}
+          >
             {currentTab === 1 ? (
               <About />
             ) : currentTab === 2 ? (
