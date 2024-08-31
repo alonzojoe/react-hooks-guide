@@ -108,7 +108,7 @@ const RootLayout = () => {
       </h1>
       <div className="row" style={{ marginTop: headerHeight }}>
         <div
-          className="col-lg-2 d-none d-lg-block"
+          className="col-xxl-2 col-xl-3 col-lg-3 d-none d-lg-block"
           style={{
             position: "sticky",
             top: headerHeight,
@@ -140,7 +140,7 @@ const RootLayout = () => {
           </div>
         </div>
         <div
-          className="col-lg-10 col-sm-12"
+          className="col-xxl-10 col-xl-9 col-lg-9 col-sm-12"
           style={{ height: `calc(100vh - ${headerHeight})`, overflowY: "auto" }}
         >
           <div className="container-fluid pt-3">
