@@ -73,6 +73,55 @@ const HookUseId = () => {
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
         }}
       />
+
+      <p className="mt-4 fw-semibold">
+        Case 2: ARIA-Labeled Input for Accessibility.
+      </p>
+      <span className="d-block mb-2">
+        • Use <code>useId()</code> to create a unique ID that connects an input
+        with an ARIA label to provide better accessibility for screen readers:
+      </span>
+
+      <CodeEditor
+        value={`import React, { useId } from 'react';\n\nconst App = () => {\n  const inputId = useId();\n  const labelId = \`\${inputId}-label\`;\n\n  return (\n    <div>\n      <span id={labelId}>Enter your email:</span>\n      <input type="email" aria-labelledby={labelId} />\n    </div>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
+      <p className="mt-4 fw-semibold">Case 3: Form with Multiple Inputs.</p>
+      <span className="d-block mb-2">
+        • When working with a form containing multiple inputs, there is no need
+        to call <code>useId()</code> multiple times. Instead, you can create a
+        base ID and use template literals to generate unique IDs for each input:
+      </span>
+
+      <CodeEditor
+        value={`import React, { useId } from 'react';\n\nconst RegistrationForm = () => {\n  const uniqueId = useId();\n\n  return (\n    <form>\n      <div>\n        <label htmlFor={\`\${uniqueId}-first-name\`}>First Name:</label>\n        <input id={\`\${uniqueId}-first-name\`} type="text" />\n      </div>\n      <div>\n        <label htmlFor={\`\${uniqueId}-last-name\`}>Last Name:</label>\n        <input id={\`\${uniqueId}-last-name\`} type="text" />\n      </div>\n      <div>\n        <label htmlFor={\`\${uniqueId}-email\`}>Email:</label>\n        <input id={\`\${uniqueId}-email\`} type="email" />\n      </div>\n      <div>\n        <label htmlFor={\`\${uniqueId}-password\`}>Password:</label>\n        <input id={\`\${uniqueId}-password\`} type="password" />\n      </div>\n    </form>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
     </>
   );
 };
