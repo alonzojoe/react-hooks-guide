@@ -36,11 +36,16 @@ const HOOKS = [
   },
   {
     id: 7,
+    name: "useId()",
+    path: "/use-id",
+  },
+  {
+    id: 8,
     name: "useImperativeHandle()",
     path: "/use-imperativehandle",
   },
   {
-    id: 8,
+    id: 9,
     name: "useTransition()",
     path: "/use-transition",
   },

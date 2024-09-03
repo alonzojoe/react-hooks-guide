@@ -10,6 +10,7 @@ import HookUseImperativeHandle from "@/pages/use-imperativehandle/HookUseImperat
 import HookUseMemo from "@/pages/use-memo/HookUseMemo";
 import HookUseCallback from "@/pages/use-callback/HookUseCallback";
 import HookUseTransition from "@/pages/use-transition/HookUseTransition";
+import HookUseId from "@/pages/use-id/HookUseId";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           />
           <Route path="/use-memo" element={<HookUseMemo />} />
           <Route path="/use-callback" element={<HookUseCallback />} />
+          <Route path="/use-id" element={<HookUseId />} />
           <Route path="/use-transition" element={<HookUseTransition />} />
           <Route path="*" element={<NotFound />} />
         </Route>
