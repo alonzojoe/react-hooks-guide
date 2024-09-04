@@ -2,54 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import HookLogo from "@/assets/images/hook.png";
 import GitHubLogo from "@/assets/images/github.png";
-
-const HOOKS = [
-  {
-    id: 1,
-    name: "useState()",
-    path: "/use-state",
-  },
-  {
-    id: 2,
-    name: "useReducer()",
-    path: "/use-reducer",
-  },
-  {
-    id: 3,
-    name: "useEffect()",
-    path: "/use-effect",
-  },
-  {
-    id: 4,
-    name: "useRef()",
-    path: "/use-ref",
-  },
-  {
-    id: 5,
-    name: "useMemo()",
-    path: "/use-memo",
-  },
-  {
-    id: 6,
-    name: "useCallback()",
-    path: "/use-callback",
-  },
-  {
-    id: 7,
-    name: "useId()",
-    path: "/use-id",
-  },
-  {
-    id: 8,
-    name: "useImperativeHandle()",
-    path: "/use-imperativehandle",
-  },
-  {
-    id: 9,
-    name: "useTransition()",
-    path: "/use-transition",
-  },
-];
+import { routes } from "@/lib/items.js";
 
 const RootLayout = () => {
   const headerRef = useRef(null);
@@ -135,7 +88,7 @@ const RootLayout = () => {
               </strong>
 
               <ul className="list-unstyled fw-normal pb-2 small">
-                {HOOKS.map((hook) => (
+                {routes.map((hook) => (
                   <li key={hook.id}>
                     <NavLink
                       to={hook.path}
@@ -196,7 +149,7 @@ const RootLayout = () => {
             </strong>
 
             <ul className="list-unstyled fw-normal pb-2 small">
-              {HOOKS.map((hook) => (
+              {routes.map((hook) => (
                 <li key={hook.id}>
                   <NavLink
                     to={hook.path}

@@ -11,6 +11,7 @@ import HookUseMemo from "@/pages/use-memo/HookUseMemo";
 import HookUseCallback from "@/pages/use-callback/HookUseCallback";
 import HookUseTransition from "@/pages/use-transition/HookUseTransition";
 import HookUseId from "@/pages/use-id/HookUseId";
+import HookUseDeferredValue from "@/pages/use-deferredvalue/HookUseDeferredValue";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/use-callback" element={<HookUseCallback />} />
           <Route path="/use-id" element={<HookUseId />} />
           <Route path="/use-transition" element={<HookUseTransition />} />
+          <Route path="/use-deferredvalue" element={<HookUseDeferredValue />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
