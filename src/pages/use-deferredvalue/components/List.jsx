@@ -1,17 +1,23 @@
-import React, { useMemo } from "react";
+import React, { useDeferredValue, useEffect, useMemo } from "react";
 
-const MAX_LENGHT = 20000;
+const MAX_LENGTH = 20000;
 
 const List = ({ query }) => {
+  const deferredQuery = useDeferredValue(query);
+
   const listItems = useMemo(() => {
     let items = [];
 
-    for (let i = 0; i < MAX_LENGHT; i++) {
-      items.push(<div key={i}>{query}</div>);
+    for (let i = 0; i < MAX_LENGTH; i++) {
+      items.push(<div key={i}>{deferredQuery}</div>);
     }
 
     return items;
-  }, [query]);
+  }, [deferredQuery]);
+
+  useEffect(() => {
+    console.log(`Query: ${query}\nDeferred Query: ${deferredQuery}`);
+  }, [query, deferredQuery]);
 
   return listItems;
 };
