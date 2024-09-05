@@ -38,10 +38,10 @@ const HookUseTransition = () => {
                 Posts (slow)
                 {isPending && (
                   <div
-                    class="spinner-border spinner-border-sm text-danger mx-1"
+                    className="spinner-border spinner-border-sm text-danger mx-1"
                     role="status"
                   >
-                    <span class="visually-hidden">Loading...</span>
+                    <span className="visually-hidden">Loading...</span>
                   </div>
                 )}
               </a>

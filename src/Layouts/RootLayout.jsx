@@ -1,9 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
-import HookLogo from "@/assets/images/hook.png";
-import GitHubLogo from "@/assets/images/github.png";
 import { routes } from "@/lib/items.js";
+import HookLogo from "@/assets/images/hook.png";
 import Header from "@/Layouts/components/Header";
+import HeaderItems from "@/Layouts/components/HeaderItems";
 import Sidebar from "@/Layouts/components/Sidebar";
 import ToggledSidebar from "@/Layouts/components/ToggledSidebar";
 
@@ -58,18 +58,7 @@ const RootLayout = () => {
           <h5 className="offcanvas-title" id="sidebarLabel">
             <div className="d-flex align-items-center justify-content-between">
               <div>
-                <Link
-                  to="/"
-                  className="text-decoration-none text-white align-middle"
-                >
-                  <img src={HookLogo} alt="ReactHooks" width="50" height="50" />
-                </Link>
-                <Link
-                  to="/"
-                  className="mx-1 text-decoration-none text-white align-middle"
-                >
-                  <span>React Hooks Guide</span>
-                </Link>
+                <HeaderItems />
               </div>
             </div>
           </h5>
