@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import HookLogo from "@/assets/images/hook.png";
 import GitHubLogo from "@/assets/images/github.png";
 
