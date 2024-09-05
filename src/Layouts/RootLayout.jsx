@@ -5,6 +5,7 @@ import GitHubLogo from "@/assets/images/github.png";
 import { routes } from "@/lib/items.js";
 import Header from "@/Layouts/components/Header";
 import Sidebar from "@/Layouts/components/Sidebar";
+import ToggledSidebar from "@/Layouts/components/ToggledSidebar";
 
 const RootLayout = () => {
   const headerRef = useRef(null);
@@ -79,26 +80,7 @@ const RootLayout = () => {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body" data-bs-dismiss="offcanvas">
-          <li className="bd-links-group pb-2 list-unstyled">
-            <strong className="bd-links-heading d-flex w-100 align-items-center fw-semibold fs-4">
-              Hooks
-            </strong>
-
-            <ul className="list-unstyled fw-normal pb-2 small">
-              {routes.map((hook) => (
-                <li key={hook.id}>
-                  <NavLink
-                    to={hook.path}
-                    className=" bd-links-link d-inline-block text-decoration-none rounded route-link"
-                  >
-                    {hook.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </li>
-        </div>
+        <ToggledSidebar routes={routes} />
       </div>
     </>
   );
