@@ -5,12 +5,9 @@ const WithUseCallback = () => {
   const [count, setCount] = useState(0);
   const [lightMode, setLightMode] = useState(false);
 
-  const getList = useCallback(
-    (increment) => {
-      return [count + increment, count + increment + 1, count + increment + 2];
-    },
-    [count]
-  );
+  const getList = (increment) => {
+    return [count + increment, count + increment + 1, count + increment + 2];
+  };
 
   const themeStyle = {
     background: lightMode ? "white" : "black",
@@ -21,7 +18,7 @@ const WithUseCallback = () => {
     <Card className="shadow py-2" style={{ width: "100%" }}>
       <div className="card-body">
         <h5 className="card-title">
-          With <code>useCallback()</code>
+          Without <code>useCallback()</code>
         </h5>
         <div className="d-flex justify-content-center flex-column gap-3">
           <div className="form-group">

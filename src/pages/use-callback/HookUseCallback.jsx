@@ -1,5 +1,6 @@
 import React from "react";
 import WithUseCallback from "@/pages/use-callback/components/WithUseCallback";
+import WithoutUseCallback from "@/pages/use-callback/components/WithoutUseCallback";
 
 const HookUseCallback = () => {
   return (
@@ -15,7 +16,7 @@ const HookUseCallback = () => {
         </div>
         <div className="col-sm-12 col-md-6 mb-4">
           <div className="d-flex justify-content-center">
-            Without useCallback()
+            <WithoutUseCallback />
           </div>
         </div>
       </div>
