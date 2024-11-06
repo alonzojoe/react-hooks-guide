@@ -36,7 +36,7 @@ const HookUseId = () => {
       <AlertMessage className="alert-warning p-4 my-4">
         <>
           <div className="d-flex align-items-center gap-3">
-            <i class="bx bxs-message-error h4"></i>
+            <i className="bx bxs-message-error h4"></i>
             <h4>Warning</h4>
           </div>
           <p className="mt-1 fs-6">

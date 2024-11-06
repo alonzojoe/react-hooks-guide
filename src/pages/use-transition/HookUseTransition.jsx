@@ -2,6 +2,7 @@ import React, { useState, useTransition } from "react";
 import About from "@/pages/use-transition/components/About";
 import Posts from "@/pages/use-transition/components/Posts";
 import Contact from "@/pages/use-transition/components/Contact";
+import AlertMessage from "@/components/UI/AlertMessage";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 
 const HookUseTransition = () => {
@@ -65,10 +66,24 @@ const HookUseTransition = () => {
         </li>
       </ul>
 
+      <AlertMessage className="alert-warning p-4 my-4">
+        <>
+          <div className="d-flex align-items-center gap-3">
+            <i className="bx bxs-message-error h4"></i> <h4>Warning</h4>
+          </div>
+          <p className="mt-1 fs-6">
+            Using <code>useTransition()</code> will cause your component to
+            render twice: once for the high-priority update and once for the
+            low-priority update. Be mindful of potential performance
+            implications when using it for large state changes.
+          </p>
+        </>
+      </AlertMessage>
+
       <hr />
 
       <h3>
-        <code>Example scenario in realworld projects.</code>
+        <code>Example scenario in realworld projects. (Slow Posts Tab)</code>
       </h3>
       <div className="my-3 row">
         <div className="col-sm-12 mb-4">
