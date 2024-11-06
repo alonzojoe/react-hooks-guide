@@ -46,8 +46,8 @@ const HookUseMemo = () => {
       </p>
       <span className="d-block mb-2">
         • If you have a function with complex logic or heavy calculations, use
-        useMemo to compute the result once and re-use it unless dependencies
-        change.
+        <code>useMemo()</code> to compute the result once and re-use it unless
+        dependencies change.
       </span>
 
       <CodeEditor
@@ -122,8 +122,8 @@ const HookUseMemo = () => {
 
       <h3>
         <code>
-          Example in realworld projects (without <code>useMemo()</code> VS. with{" "}
-          <code>useMemo()</code>)
+          Example Scenario w/o<code>useMemo()</code> VS. w/
+          <code>useMemo()</code>
         </code>
       </h3>
       <div className="my-3 row">
