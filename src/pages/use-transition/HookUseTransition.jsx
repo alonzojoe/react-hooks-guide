@@ -16,8 +16,10 @@ const HookUseTransition = () => {
 
   return (
     <>
+      <hr />
+
       <h3>
-        <i>Examples:</i>
+        <code>Example scenario in realworld projects.</code>
       </h3>
       <div className="my-3 row">
         <div className="col-sm-12 mb-4">
