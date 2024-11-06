@@ -85,6 +85,10 @@ const HookUseCallback = () => {
           <code>useCallback()</code>
         </code>
       </h3>
+      <span className="d-block mb-2">
+        • Open browser developer tools and check console and compare the two
+        when toggling the `Change Background`.
+      </span>
       <div className="my-3 row">
         <div className="col-sm-12 col-md-6 mb-4">
           <div className="d-flex justify-content-center">
