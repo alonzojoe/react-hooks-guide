@@ -2,6 +2,7 @@ import React, { useState, useTransition } from "react";
 import About from "@/pages/use-transition/components/About";
 import Posts from "@/pages/use-transition/components/Posts";
 import Contact from "@/pages/use-transition/components/Contact";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 
 const HookUseTransition = () => {
   console.log("Hook UseTransition is rendering");
@@ -16,6 +17,54 @@ const HookUseTransition = () => {
 
   return (
     <>
+      <h2>
+        <code>useTransition()</code>
+      </h2>
+      <ul className="mt-3">
+        <li>
+          <p>
+            The <code>useTransition()</code> hook is a React Hook used for
+            handling transitions, allowing you to manage UI state changes that
+            are less urgent. It helps prioritize updates by marking certain
+            state updates as &quot;transitional,&quot; which allows them to
+            occur with lower priority. This can improve user experience in cases
+            where immediate feedback is needed, like button clicks or input
+            changes, without causing delays due to heavy UI updates.
+          </p>
+        </li>
+      </ul>
+      <span className="d-block my-2">Syntax:</span>
+      <CodeEditor
+        value={`const [isPending, startTransition] = useTransition();`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+      <ul className="mt-3">
+        <li>
+          <p>
+            <code>isPending</code>: A boolean that indicates if the transition
+            is still in progress.
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>startTransition</code>: A function that you wrap around
+            updates that you want to mark as low-priority.
+          </p>
+        </li>
+      </ul>
+
       <hr />
 
       <h3>
