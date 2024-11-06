@@ -78,6 +78,58 @@ const HookUseCallback = () => {
         }}
       />
 
+      <p className="fw-semibold">
+        Case 2: Optimizing Event Handlers in Components
+      </p>
+      <span className="d-block mb-2">
+        • <code>useCallback()</code> can optimize event handlers like onClick or
+        onSubmit that don’t need to be re-created on every render, especially
+        useful when dealing with large lists or complex UI components.
+      </span>
+
+      <CodeEditor
+        value={`const MyComponent = () => {\n  const handleSubmit = useCallback((event) => {\n    event.preventDefault();\n    console.log('Form submitted');\n  }, []);\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <button type="submit">Submit</button>\n    </form>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
+      <p className="fw-semibold">
+        Case 3: Memoizing Functions Used in useEffect
+      </p>
+      <span className="d-block mb-2">
+        • If you need to use a function in <code>useEffect()</code> with
+        dependencies, <code>useCallback()</code> can help ensure that the
+        function reference remains stable, avoiding unnecessary effects.
+      </span>
+
+      <CodeEditor
+        value={`const MyComponent = ({ dependency }) => {\n  const fetchData = useCallback(() => {\n    console.log('Fetching data...');\n  }, [dependency]);\n\n  useEffect(() => {\n    fetchData();\n  }, [fetchData]);\n\n  return <div>Data fetched</div>;\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
       <hr />
       <h3>
         <code>
