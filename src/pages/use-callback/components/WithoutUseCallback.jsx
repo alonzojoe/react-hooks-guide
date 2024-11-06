@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Card from "@/components/UI/Card";
 import ListItems from "@/pages/use-callback/components/ListItems";
-const WithUseCallback = () => {
+const WithoutUseCallback = () => {
   const [count, setCount] = useState(0);
   const [lightMode, setLightMode] = useState(false);
 
@@ -45,4 +45,4 @@ const WithUseCallback = () => {
   );
 };
 
-export default WithUseCallback;
+export default WithoutUseCallback;

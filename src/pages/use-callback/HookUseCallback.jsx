@@ -40,6 +40,44 @@ const HookUseCallback = () => {
         }}
       />
 
+      <h3 className="my-4">
+        Common Use Cases of <code>useCallback()</code>
+      </h3>
+      <p className="fw-semibold">
+        Case 1: Preventing Unnecessary Re-Renders in Child Components
+      </p>
+      <span className="d-block mb-2">
+        • When passing a function as a prop to a child component, the child may
+        re-render every time the parent re-renders because the function is
+        considered a new reference. Using <code>useCallback()</code> ensures the
+        function reference remains the same across renders unless dependencies
+        change, preventing unnecessary re-renders of the child component.
+      </span>
+      <span className="d-block mb-2">
+        • For instance, in the example below, the WithUseCallback component has
+        a function getList that generates a list of numbers based on the current
+        count. Since getList is wrapped with useCallback, it only re-creates
+        when count changes. This way, the ListItems child component doesn’t
+        re-render unless necessary.
+      </span>
+
+      <CodeEditor
+        value={`const WithUseCallback = () => {\n  const [count, setCount] = useState(0);\n\n  const getList = useCallback(\n    (increment) => {\n      return [count + increment, count + increment + 1, count + increment + 2];\n    },\n    [count]\n  );\n\n  return (\n    <div>\n      <button onClick={() => setCount(count + 1)}>Increment Count</button>\n      <ListItems getList={getList} />\n    </div>\n  );\n};\n\nconst ListItems = ({ getList }) => {\n  const [items, setItems] = useState([]);\n\n  useEffect(() => {\n    console.log("Updating Items...");\n    setItems(getList(1));\n  }, [getList]);\n\n  return (\n    <ul className="px-2" style={{ listStyle: "none" }}>\n      {items.map((item) => (\n        <li key={item}>{item}</li>\n      ))}\n    </ul>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
       <hr />
       <h3>
         <code>
