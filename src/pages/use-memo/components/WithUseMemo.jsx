@@ -23,7 +23,7 @@ const WithUseMemo = ({ slowCalculation }) => {
   return (
     <Card className="shadow py-2" style={{ width: "100%" }}>
       <div className="card-body">
-        <h5 classname="card-title">
+        <h5 className="card-title">
           With <code>useMemo()</code>
         </h5>
         <div className="d-flex justify-content-center flex-column gap-3">
