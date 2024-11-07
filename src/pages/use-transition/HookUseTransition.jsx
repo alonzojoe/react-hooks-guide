@@ -110,6 +110,46 @@ const HookUseTransition = () => {
         }}
       />
 
+      <span className="d-block mb-2">
+        In this example, clicking &quot;Generate List&quot; triggers a
+        long-running update, but useTransition marks it as low priority,
+        allowing the UI to remain responsive. While the list is generating,
+        <code>isPending</code> is <code>true</code>, which can be used to show a
+        loading indicator.
+      </span>
+
+      <p className="fw-semibold">
+        Case 2: Improving Typing Performance in Search Filters
+      </p>
+      <span className="d-block mb-2">
+        • If you&apos;re filtering a large list based on user input, frequent
+        state updates can slow down typing. Using <code>useTransition()</code>{" "}
+        to delay the filtering allows the input to remain responsive.
+      </span>
+
+      <CodeEditor
+        value={`import React, { useState, useTransition } from 'react';\n\nconst SearchWithTransition = ({ items }) => {\n  const [query, setQuery] = useState('');\n  const [filteredItems, setFilteredItems] = useState(items);\n  const [isPending, startTransition] = useTransition();\n\n  const handleChange = (event) => {\n    const value = event.target.value;\n    setQuery(value);\n\n    startTransition(() => {\n      setFilteredItems(items.filter(item => item.includes(value)));\n    });\n  };\n\n  return (\n    <div>\n      <input type="text" value={query} onChange={handleChange} placeholder="Search..." />\n      {isPending && <p>Filtering items...</p>}\n      <ul>\n        {filteredItems.map((item, index) => (\n          <li key={index}>{item}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+      <span className="d-block mb-2">
+        Here, <code>useTransition</code> ensures that typing in the search input
+        is quick and smooth, while the filtering operation happens at a lower
+        priority. The <code>isPending</code> flag can be used to show a
+        &apos;Filtering items...&apos; message while the list is being updated.
+      </span>
+
       <hr />
 
       <h3>
