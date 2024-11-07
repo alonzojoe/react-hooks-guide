@@ -80,6 +80,36 @@ const HookUseTransition = () => {
         </>
       </AlertMessage>
 
+      <h3 className="my-4">
+        Common Use Cases of <code>useTransition()</code>
+      </h3>
+      <p className="fw-semibold">
+        Case 1: Handling Slow State Updates Without Blocking Fast Interactions
+      </p>
+      <span className="d-block mb-2">
+        • Suppose you have a large list of items that can cause noticeable
+        delays when rendered. Using <code>useTransition()</code>, you can defer
+        this heavy UI update and prioritize quick actions, such as button
+        clicks, ensuring the UI stays responsive.
+      </span>
+
+      <CodeEditor
+        value={`import React, { useState, useTransition } from 'react';\n\nconst ListWithTransition = () => {\n  const [items, setItems] = useState([]);\n  const [isPending, startTransition] = useTransition();\n\n  const handleClick = () => {\n    startTransition(() => {\n      const newItems = Array.from({ length: 20000 }, (_, i) => 'Item ' + (i + 1));\n      setItems(newItems);\n    });\n  };\n\n  return (\n    <div>\n      <button onClick={handleClick}>Generate List</button>\n      {isPending && <p>Loading items...</p>}\n      <ul>\n        {items.map((item, index) => (\n          <li key={index}>{item}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};`}
+        language="jsx"
+        placeholder="Please enter JSX code."
+        onChange={(evn) => setCode(evn.target.value)}
+        padding={0}
+        data-color-mode="dark"
+        style={{
+          backgroundColor: "#161B22",
+          borderRadius: "5px",
+          pointerEvents: "none",
+          fontSize: "15px",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
       <hr />
 
       <h3>
